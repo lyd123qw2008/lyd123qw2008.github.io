@@ -416,7 +416,7 @@
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.5.1/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
+    var guest = 'nick,mail';
     guest = guest.split(',').filter(item => {
       return GUEST.includes(item);
     });
@@ -426,7 +426,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : true,
       appId      : 'qKH8PVCfh4TubrKpc57GJBil-MdYXbMMI',
       appKey     : 'ESCtmxPasu3WkgCM2xq5PbZs',
-      placeholder: "Just go go",
+      placeholder: "欢迎留言。填写有效的邮箱，收到回复后有邮件通知 ヾ(*´▽‘*)ﾉ",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,
