@@ -2,33 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.lyd123qw2008.space/categories/index.html</loc>
-    
-    <lastmod>2023-05-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lyd123qw2008.space/music/index.html</loc>
-    
-    <lastmod>2023-05-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lyd123qw2008.space/tags/index.html</loc>
-    
-    <lastmod>2023-05-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.lyd123qw2008.space/2023/05/01/build-a-blog-with-hexo/</loc>
     
     <lastmod>2023-05-03</lastmod>
@@ -48,6 +21,33 @@
   
   <url>
     <loc>https://blog.lyd123qw2008.space/2019/01/23/%E5%92%8C%E6%97%B6%E9%97%B4%E8%B5%9B%E8%B7%91/</loc>
+    
+    <lastmod>2023-05-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lyd123qw2008.space/categories/index.html</loc>
+    
+    <lastmod>2023-05-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lyd123qw2008.space/music/index.html</loc>
+    
+    <lastmod>2023-05-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lyd123qw2008.space/tags/index.html</loc>
     
     <lastmod>2023-05-03</lastmod>
     
