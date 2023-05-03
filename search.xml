@@ -47,7 +47,7 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>blog</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -68,38 +68,18 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <tags>
-        <tag>diary</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>post title with whitespace</title>
-    <url>/2023/04/29/post-title-with-whitespace-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script>]]></content>
-  </entry>
-  <entry>
-    <title>post title with whitespace</title>
-    <url>/2023/04/29/post-title-with-whitespace/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
+    <title>与时间赛跑</title>
+    <url>/2019/01/23/%E5%92%8C%E6%97%B6%E9%97%B4%E8%B5%9B%E8%B7%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote><p>虽然明天还会有新的太阳，但永远不会有今天的太阳。</p>
+<footer><strong>林清玄</strong><cite>《和时间赛跑》</cite></footer></blockquote>
 
-<span id="more"></span>
-
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io/">http://devdocs.io</a></p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-
-<div class="video-container"><iframe src="https://www.youtube.com/embed/videoseries?list=PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-
-<div class="video-container"><iframe src="https://player.vimeo.com/video/video_id" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-
-
-    <div id="aplayer-tERfpYeX" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="60198" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
-    ></div>]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
+]]></content>
       <tags>
-        <tag>diary</tag>
+        <tag>daily</tag>
       </tags>
   </entry>
 </search>

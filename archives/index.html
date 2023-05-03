@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.lyd123qw2008.space","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.lyd123qw2008.space","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="lyd 的自留地">
@@ -192,7 +192,7 @@
   <div class="post-block">
     <div class="posts-collapse">
       <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 4 篇日志。 继续努力。</span>
+        <span class="collection-header">嗯..! 目前共计 3 篇日志。 继续努力。</span>
       </div>
 
       
@@ -225,26 +225,6 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2023-04-29T15:59:46+08:00"
-              content="2023-04-29">
-          04-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/04/29/post-title-with-whitespace-1/" itemprop="url">
-            <span itemprop="name">post title with whitespace</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
               datetime="2023-04-29T15:56:05+08:00"
               content="2023-04-29">
           04-29
@@ -259,21 +239,24 @@
 
     </header>
   </article>
+    <div class="collection-year">
+      <span class="collection-header">2019</span>
+    </div>
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2023-04-29T15:56:05+08:00"
-              content="2023-04-29">
-          04-29
+              datetime="2019-01-23T14:36:51+08:00"
+              content="2019-01-23">
+          01-23
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2023/04/29/post-title-with-whitespace/" itemprop="url">
-            <span itemprop="name">post title with whitespace</span>
+          <a class="post-title-link" href="/2019/01/23/%E5%92%8C%E6%97%B6%E9%97%B4%E8%B5%9B%E8%B7%91/" itemprop="url">
+            <span itemprop="name">与时间赛跑</span>
           </a>
       </div>
 
@@ -354,13 +337,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -421,6 +404,18 @@
 
 
 
+//
+<script>
+  (function() {
+//    console.log("artalk-analytics");
+//    Artalk.loadCountWidget({
+//	  server:  'http://107.173.180.31:8080',
+//	  site:    '',
+//	  pvEl:    '.artalk_pv_count',
+//	  countEl: '.artalk_comment_count',
+//	});
+  })();
+</script>
 
       </div>
     </footer>
@@ -471,32 +466,21 @@
 
   
 
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.5.4/Artalk.css">
 
 <script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.5.1/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'qKH8PVCfh4TubrKpc57GJBil-MdYXbMMI',
-      appKey     : 'ESCtmxPasu3WkgCM2xq5PbZs',
-      placeholder: "欢迎留言。填写有效的邮箱，收到回复后有邮件通知 ヾ(*´▽‘*)ﾉ",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : true,
-      lang       : 'zh-cn' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://d1.lyd123qw2008.space/valine/'
-    });
-  }, window.Valine);
+NexT.utils.loadComments(document.querySelector('#artalk-comments'), () => {
+  NexT.utils.getScript('https://cdn.bootcdn.net/ajax/libs/artalk/2.5.4/Artalk.js', () => {
+	Artalk.init({
+	  el         : '#artalk-comments',
+	  pageKey    :  '',
+	  title      : '',
+	  server     : 'http://107.173.180.31:8080',
+	  site       : '',
+	  pvEl       : '.artalk_pv_count',
+	  countEl    : '.artalk_comment_count'
+	});
+	}, window.Artalk);
 });
 </script>
 
