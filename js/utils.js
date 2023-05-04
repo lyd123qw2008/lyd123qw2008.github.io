@@ -399,6 +399,7 @@ NexT.utils = {
 
   loadComments: function(element, callback) {
     if (!CONFIG.comments.lazyload || !element) {
+	  callback();
       return;
     }
     let intersectionObserver = new IntersectionObserver((entries, observer) => {
