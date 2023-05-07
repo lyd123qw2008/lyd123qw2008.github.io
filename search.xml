@@ -24,13 +24,12 @@
 
 <h3 id="验证一下默认主题是否可以正常本地显示"><a href="#验证一下默认主题是否可以正常本地显示" class="headerlink" title="验证一下默认主题是否可以正常本地显示"></a>验证一下默认主题是否可以正常本地显示</h3><p>常用的两个命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成文件</span>
-$ hexo g
+hexo g
 <span class="token comment"># 启动服务器</span>
-$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="更换主题（可选）"><a href="#更换主题（可选）" class="headerlink" title="更换主题（可选）"></a>更换主题（可选）</h3><p>换到 <a href="https://github.com/theme-next/hexo-theme-next">NexT </a>主题，这个是当前 hexo 在 github 上最流行的主题，它的生态更加丰富、对新手更加友好，拓展插件丰富、教程丰富。推荐使用。</p>
-<p>git add submodules 添加子模块，把仓库 fork 到自己的仓库来。方便以后上游仓库修改，同步更新到自己的仓库。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> submodule <span class="token function">add</span> https://github.com/<span class="token operator">&lt;</span>username<span class="token operator">></span>/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="更换主题（可选）"><a href="#更换主题（可选）" class="headerlink" title="更换主题（可选）"></a>更换主题（可选）</h3><p>换到 <a href="https://github.com/next-theme/hexo-theme-next">next-theme&#x2F;hexo-theme-next: 🎉 Elegant and powerful theme for Hexo. (github.com)</a> 主题，这个是当前 hexo 在 github 上最流行的主题，它的生态更加丰富、对新手更加友好，拓展插件丰富、教程丰富。推荐使用。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-theme-next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>本地验证新的主题，按需修改自己的主题配置文件。</p>
 <h3 id="推送到-Github"><a href="#推送到-Github" class="headerlink" title="推送到 Github"></a>推送到 Github</h3><ol>
@@ -56,9 +55,6 @@ $ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
       <span class="token key atrule">contents</span><span class="token punctuation">:</span> write
     <span class="token key atrule">steps</span><span class="token punctuation">:</span>
       <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v3
-        <span class="token key atrule">with</span><span class="token punctuation">:</span>
-          <span class="token comment"># 这个必须配置。拉取子模块。 </span>
-          <span class="token key atrule">submodules</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
       <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Use Node.js 18.x
         <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v3
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
@@ -78,9 +74,12 @@ $ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
         <span class="token key atrule">uses</span><span class="token punctuation">:</span> peaceiris/actions<span class="token punctuation">-</span>gh<span class="token punctuation">-</span>pages@v3
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token key atrule">github_token</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> secrets.GITHUB_TOKEN <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
-          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./public<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./public<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://zhuanlan.zhihu.com/p/149710191">为 Hexo 博客更换主题 - 知乎 (zhihu.com)</a></p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
+<li><a href="https://theme-next.js.org/docs/">Documentation | NexT (theme-next.js.org)</a></li>
+<li><a href="https://github.com/next-theme/hexo-theme-next/issues/4">【必读】更新说明及常见问题 · Issue #4 · next-theme&#x2F;hexo-theme-next (github.com)</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>教程</category>
