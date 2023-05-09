@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Charles 证书过期处理</title>
+    <url>/2023/05/09/Charles-%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>最近打开 Charles 抓包时突然发现，抓包 https 时无法抓取明文报文包了。我也没改过其他配置。检查完我的 Charles 配置和确认了我的手机已经安装了安全证书，发现还是没能抓到明文包。<br>然后在手机上看到安装的证书刚好过期了，很奇怪怎么过期了呢？百度了一下知道了原因。</p>
+<ol>
+<li>点击 Help -&gt; SSL Proxying -&gt; Reset Charles Root Certificate..</li>
+<li>为 PC 端重新安装根证书。Help -&gt; SSL Proxying -&gt; Install Charles Root。注意选择的路径：受信任的根证书颁发机构。</li>
+<li>为手机端重新安装根证书。Help -&gt; SSL Proxying -&gt; Install Charles Root on Mobile Device or Remote Server。<br>注意如果是 IOS，安装完证书，需要在通用 -&gt; 关于本机 -&gt; 证书信任设置，启用安装好的证书。</li>
+</ol>
+<p>然后看到证书的有效期是一年，之后过期了也要重新设置。</p>
+]]></content>
+      <tags>
+        <tag>charles</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>通过 hexo 搭建博客</title>
     <url>/2023/05/01/build-a-blog-with-hexo/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>主流的博客有很多，选择 <a href="https://hexo.io/zh-cn/docs/">Hexo</a> 是因为它可以和 Github 搭配使用，用 <a href="https://docs.github.com/zh/pages/getting-started-with-github-pages">Github Pages</a> 可以搭建免费的个人博客。而 hexo 的官网网站有中文翻译，也更受国人青睐。我去翻了一下 hexo 的官方 Github 仓库，一直在持续维护，决定了选用它作为建站的系统。废话不多说开始动手。下面大部分步骤都与 hexo 官网大同小异，有些步骤，则是我在实际操作时发现的问题和结合我自己的理解做的修改。</p>
