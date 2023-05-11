@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lyd123qw2008.space","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lyd123qw2008.space","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="主流的博客有很多，选择 Hexo 是因为它可以和 Github 搭配使用，用 Github Pages 可以搭建免费的个人博客。而 hexo 的官网网站有中文翻译，也更受国人青睐。我去翻了一下 hexo 的官方 Github 仓库，一直在持续维护，决定了选用它作为建站的系统。废话不多说开始动手。下面大部分步骤都与 hexo 官网大同小异，有些步骤，则是我在实际操作时发现的问题和结合我自己的理解做的">
 <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://blog.lyd123qw2008.space/2023/05/01/build-a-blog-with-hexo/image-20230501185547290.png">
 <meta property="og:image" content="https://blog.lyd123qw2008.space/2023/05/01/build-a-blog-with-hexo/1682939030477.png">
 <meta property="article:published_time" content="2023-05-01T10:19:51.000Z">
-<meta property="article:modified_time" content="2023-05-09T08:00:17.462Z">
+<meta property="article:modified_time" content="2023-05-11T08:19:43.357Z">
 <meta property="article:author" content="lyd123qw2008">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,7 +172,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -296,13 +296,13 @@
 <img src="/2023/05/01/build-a-blog-with-hexo/1682939030477.png" class="">
 
 <h3 id="验证一下默认主题是否可以正常本地显示"><a href="#验证一下默认主题是否可以正常本地显示" class="headerlink" title="验证一下默认主题是否可以正常本地显示"></a>验证一下默认主题是否可以正常本地显示</h3><p>常用的两个命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成文件</span>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成文件</span>
 hexo g
 <span class="token comment"># 启动服务器</span>
-hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+hexo server</code></pre>
 
 <h3 id="更换主题（可选）"><a href="#更换主题（可选）" class="headerlink" title="更换主题（可选）"></a>更换主题（可选）</h3><p>换到 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">next-theme&#x2F;hexo-theme-next: 🎉 Elegant and powerful theme for Hexo. (github.com)</a> 主题，这个是当前 hexo 在 github 上最流行的主题，它的生态更加丰富、对新手更加友好，拓展插件丰富、教程丰富。推荐使用。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-theme-next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-theme-next</code></pre>
 
 <p>本地验证新的主题，按需修改自己的主题配置文件。</p>
 <h3 id="推送到-Github"><a href="#推送到-Github" class="headerlink" title="推送到 Github"></a>推送到 Github</h3><ol>
@@ -314,7 +314,7 @@ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>参考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">在 GitHub Pages 上部署 Hexo | Hexo</a></p>
 <p>我的是<code>v18.15.0</code>。<strong>更新了 actions 版本、node 版本</strong>。</p>
 <p><code>.github/workflows/pages.yml</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Pages
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Pages
 
 <span class="token key atrule">on</span><span class="token punctuation">:</span>
   <span class="token key atrule">push</span><span class="token punctuation">:</span>
@@ -347,7 +347,7 @@ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span
         <span class="token key atrule">uses</span><span class="token punctuation">:</span> peaceiris/actions<span class="token punctuation">-</span>gh<span class="token punctuation">-</span>pages@v3
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token key atrule">github_token</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> secrets.GITHUB_TOKEN <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
-          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./public<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./public</code></pre>
 
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
 <li><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/">Documentation | NexT (theme-next.js.org)</a></li>
@@ -445,7 +445,6 @@ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>

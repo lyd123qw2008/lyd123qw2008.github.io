@@ -38,13 +38,13 @@
 <img src="/2023/05/01/build-a-blog-with-hexo/1682939030477.png" class="">
 
 <h3 id="验证一下默认主题是否可以正常本地显示"><a href="#验证一下默认主题是否可以正常本地显示" class="headerlink" title="验证一下默认主题是否可以正常本地显示"></a>验证一下默认主题是否可以正常本地显示</h3><p>常用的两个命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成文件</span>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成文件</span>
 hexo g
 <span class="token comment"># 启动服务器</span>
-hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+hexo server</code></pre>
 
 <h3 id="更换主题（可选）"><a href="#更换主题（可选）" class="headerlink" title="更换主题（可选）"></a>更换主题（可选）</h3><p>换到 <a href="https://github.com/next-theme/hexo-theme-next">next-theme&#x2F;hexo-theme-next: 🎉 Elegant and powerful theme for Hexo. (github.com)</a> 主题，这个是当前 hexo 在 github 上最流行的主题，它的生态更加丰富、对新手更加友好，拓展插件丰富、教程丰富。推荐使用。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-theme-next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-theme-next</code></pre>
 
 <p>本地验证新的主题，按需修改自己的主题配置文件。</p>
 <h3 id="推送到-Github"><a href="#推送到-Github" class="headerlink" title="推送到 Github"></a>推送到 Github</h3><ol>
@@ -56,7 +56,7 @@ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>参考 <a href="https://hexo.io/zh-cn/docs/github-pages">在 GitHub Pages 上部署 Hexo | Hexo</a></p>
 <p>我的是<code>v18.15.0</code>。<strong>更新了 actions 版本、node 版本</strong>。</p>
 <p><code>.github/workflows/pages.yml</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Pages
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Pages
 
 <span class="token key atrule">on</span><span class="token punctuation">:</span>
   <span class="token key atrule">push</span><span class="token punctuation">:</span>
@@ -89,7 +89,7 @@ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span
         <span class="token key atrule">uses</span><span class="token punctuation">:</span> peaceiris/actions<span class="token punctuation">-</span>gh<span class="token punctuation">-</span>pages@v3
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token key atrule">github_token</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> secrets.GITHUB_TOKEN <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
-          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./public<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./public</code></pre>
 
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
 <li><a href="https://theme-next.js.org/docs/">Documentation | NexT (theme-next.js.org)</a></li>
@@ -112,6 +112,98 @@ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 ]]></content>
       <tags>
         <tag>daily</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 Docker 安装 openwrt</title>
+    <url>/2023/05/11/%E7%94%A8-Docker-%E5%AE%89%E8%A3%85-openwrt/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前尝试过自己搭建 virtualbox 虚拟机搭建了 openwrt，想在公司网络也搭建一个 openwrt 给自己用，有需要的同事也可以分享给他们用。但是受限于公司的 windows 虚拟机开启不了虚拟化，安装的 virtualbox 不能安装 openwrt。 所以我另需它路，想在公司的 linux 虚拟机上用 docker 安装 openwrt。几经网上搜索资料和折腾，成功在 linux 服务器上用 docker 安装了 openwrt。我使用的环境是 centos7。</p>
+<span id="more"></span>
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="打开网卡混杂模式"><a href="#打开网卡混杂模式" class="headerlink" title="打开网卡混杂模式"></a><strong>打开网卡混杂模式</strong></h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 promisc on</code></pre>
+
+<h3 id="创建网络"><a href="#创建网络" class="headerlink" title="创建网络"></a><strong>创建网络</strong></h3><p><code>--subnet</code> 和 <code>--gateway</code> 在一个网段<br><code>--gateway</code> 和宿主机 centos 7 使用同一个网关</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create <span class="token parameter variable">-d</span> macvlan <span class="token parameter variable">--subnet</span><span class="token operator">=</span><span class="token number">192.168</span>.123.0/24 <span class="token parameter variable">--gateway</span><span class="token operator">=</span><span class="token number">192.168</span>.123.1 <span class="token parameter variable">-o</span> <span class="token assign-left variable">parent</span><span class="token operator">=</span>eth0 macnet</code></pre>
+
+<p>可以使用 <code>docker network ls</code> 看网络是否成功创建了。</p>
+<h3 id="拉取镜像或自己创建镜像"><a href="#拉取镜像或自己创建镜像" class="headerlink" title="拉取镜像或自己创建镜像"></a>拉取镜像或自己创建镜像</h3><p>有三种方案可选：</p>
+<ol>
+<li><p>用现成的 docker 镜像。推荐 <code>SuLingGG</code> 的自编译固件镜像。</p>
+<p>他选的是 <code>immortalwrt</code> 的 <a href="https://github.com/immortalwrt/immortalwrt/tree/openwrt-18.06-k5.4">openwrt-18.06-k5.4</a> 已经 <code>EOL</code>，随之截至到我发博 <code>SuLingGG</code>的 <a href="https://github.com/SuLingGG/OpenWrt-Docker">OpenWrt-Docker</a> 已改为只读。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:latest</code></pre>
+</li>
+<li><p>用固件编译后的 <code>tar.gz</code> 压缩包，自己转成 docker 镜像。命令 <code>docker import openwrt-04.18.2023-x86-64-generic-rootfs.tar.gz openwrt </code></p>
+<p><strong>语法：</strong></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">import</span> <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token function">file</span><span class="token operator">|</span>URL<span class="token operator">|</span>- <span class="token punctuation">[</span>REPOSITORY<span class="token punctuation">[</span>:TAG<span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre>
+
+<p>OPTIONS说明：</p>
+<ul>
+<li><p>-c : 应用docker 指令创建镜像；</p>
+</li>
+<li><p>-m : 提交时的说明文字；</p>
+</li>
+</ul>
+<p>推荐 <code>kiddin9</code> 大佬的 <a href="https://github.com/kiddin9/OpenWrt_x86-r2s-r4s-r5s-N1">OpenWrt_x86-r2s-r4s-r5s-N1</a>用他分享的<code>一分钟在线编译定制专属固件:</code> <a href="https://supes.top/">supes.top</a>，编译新版本 openwrt固件，然后选择 <code>下载镜像 -&gt; XXX.TAR.GZ</code>。</p>
+</li>
+<li><p>自己编译固件，然后走 <code>2</code>。</p>
+</li>
+</ol>
+<h3 id="创建并启动容器"><a href="#创建并启动容器" class="headerlink" title="创建并启动容器"></a>创建并启动容器</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--restart</span> always <span class="token parameter variable">--name</span> <span class="token operator">&lt;</span>contain_name<span class="token operator">></span> <span class="token parameter variable">-d</span> <span class="token parameter variable">--network</span> macnet <span class="token parameter variable">--privileged</span> <span class="token operator">&lt;</span>image_name<span class="token operator">></span> /sbin/init</code></pre>
+
+<ul>
+<li><code>contain_name</code> 容器名</li>
+<li><code>image_name </code>  镜像名</li>
+</ul>
+<h3 id="进入容器并修改相关参数"><a href="#进入容器并修改相关参数" class="headerlink" title="进入容器并修改相关参数"></a>进入容器并修改相关参数</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> <span class="token operator">&lt;</span>contain_name<span class="token operator">></span> <span class="token function">bash</span></code></pre>
+
+<ul>
+<li><code>contain_name</code> 容器名</li>
+</ul>
+<p>执行此命令后我们便进入 OpenWrt 的命令行界面，首先，我们需要编辑 OpenWrt 的网络配置文件：</p>
+<pre class="language-none"><code class="language-none">vim &#x2F;etc&#x2F;config&#x2F;network</code></pre>
+
+<p>我们需要更改 Lan 口设置：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">config interface <span class="token string">'lan'</span>
+        option <span class="token builtin class-name">type</span> <span class="token string">'bridge'</span>
+        option ifname <span class="token string">'eth0'</span>
+        option proto <span class="token string">'static'</span>
+        option ipaddr <span class="token string">'192.168.123.100'</span>
+        option netmask <span class="token string">'255.255.255.0'</span>
+        option ip6assign <span class="token string">'60'</span>
+        option gateway <span class="token string">'192.168.123.1'</span>
+        option broadcast <span class="token string">'192.168.123.255'</span>
+        option dns <span class="token string">'192.168.123.1'</span></code></pre>
+
+<p>其中：</p>
+<p>所有的 <code>192.168.123.x</code> 需要根据宿主机所处网段修改，<code>option gateway</code>和<code>option dns</code>填写路由器的 IP，若宿主机获得的 IP 为 <code>192.168.2.154</code>，路由器 IP 为<code>192.168.2.1</code>，则需要这样修改：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">config interface <span class="token string">'lan'</span>
+        option <span class="token builtin class-name">type</span> <span class="token string">'bridge'</span>
+        option ifname <span class="token string">'eth0'</span>
+        option proto <span class="token string">'static'</span>
+        option ipaddr <span class="token string">'192.168.2.100'</span>
+        option netmask <span class="token string">'255.255.255.0'</span>
+        option ip6assign <span class="token string">'60'</span>
+        option gateway <span class="token string">'192.168.2.1'</span>
+        option broadcast <span class="token string">'192.168.2.255'</span>
+        option dns <span class="token string">'192.168.2.1'</span></code></pre>
+
+<p><code>option ipaddr </code>项目定义了 OpenWrt 的 IP 地址，在完成网段设置后，IP最后一段可根据自己的爱好修改（前提是符合规则且不和现有已分配 IP 冲突）。</p>
+<h3 id="重启网络"><a href="#重启网络" class="headerlink" title="重启网络"></a>重启网络</h3><pre class="language-bash" data-language="bash"><code class="language-bash">/etc/init.d/network restart</code></pre>
+
+<h3 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h3><p>移步到 <code>SuLingGG</code> 大佬的博客，他的博客非常详细。</p>
+<p><a href="https://mlapp.cn/376.html">https://mlapp.cn/376.html</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><p><a href="https://p3terx.com/archives/build-openwrt-with-github-actions.html">GitHub Actions 在线云编译 OpenWrt 固件 - P3TERX ZONE</a></p>
+</li>
+<li><p><a href="https://mlapp.cn/376.html">在Docker 中运行 OpenWrt 旁路网关</a></p>
+</li>
+<li><p><a href="https://www.right.com.cn/forum/thread-588747-1-1.html">【小狮子编译贴】抛砖引玉，为打造N1路由神器 - 恩山无线论坛</a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>openwrt</tag>
       </tags>
   </entry>
 </search>
