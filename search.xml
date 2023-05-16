@@ -123,7 +123,7 @@ hexo server</code></pre>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="打开网卡混杂模式"><a href="#打开网卡混杂模式" class="headerlink" title="打开网卡混杂模式"></a><strong>打开网卡混杂模式</strong></h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 promisc on</code></pre>
 
 <h3 id="创建网络"><a href="#创建网络" class="headerlink" title="创建网络"></a><strong>创建网络</strong></h3><p><code>--subnet</code> 和 <code>--gateway</code> 在一个网段<br><code>--gateway</code> 和宿主机 centos 7 使用同一个网关</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create <span class="token parameter variable">-d</span> macvlan <span class="token parameter variable">--subnet</span><span class="token operator">=</span><span class="token number">192.168</span>.123.0/24 <span class="token parameter variable">--gateway</span><span class="token operator">=</span><span class="token number">192.168</span>.123.1 <span class="token parameter variable">-o</span> <span class="token assign-left variable">parent</span><span class="token operator">=</span>eth0 macnet</code></pre>
+<pre class="language-none"><code class="language-none">docker network create -d macvlan --subnet&#x3D;192.168.123.0&#x2F;24 --gateway&#x3D;192.168.123.1 -o parent&#x3D;eth0 macnet</code></pre>
 
 <p>可以使用 <code>docker network ls</code> 看网络是否成功创建了。</p>
 <h3 id="拉取镜像或自己创建镜像"><a href="#拉取镜像或自己创建镜像" class="headerlink" title="拉取镜像或自己创建镜像"></a>拉取镜像或自己创建镜像</h3><p>有三种方案可选：</p>
@@ -205,5 +205,29 @@ hexo server</code></pre>
         <tag>docker</tag>
         <tag>openwrt</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>记五月十五</title>
+    <url>/2023/05/16/%E8%AE%B0%E4%BA%94%E6%9C%88%E5%8D%81%E4%BA%94/</url>
+    <content><![CDATA[<blockquote><p>芝兰生于深谷，不以无人而不芳<br>君子修身养德，不以穷困而改志</p>
+<footer><strong>左耳朵耗子 陈皓</strong></footer></blockquote>
+
+<span id="more"></span>
+
+<img src="e33e7ffc-1373-4322-8e9a-629c10ce5c25.webp" style="filter: grayscale(100%);">
+
+<p>耗子叔，我认为他是一位技术的先驱和大牛，用自己的经历和博客，启蒙了许多学习编程的人的思想、为他们开阔的眼界、指导了方向，也感染了许多像我这样在软件开发路上的上人。</p>
+<p>他留在微博的最后一句话对我挺有启发的，这两天闲时，我总会体会这句话表达的意思。</p>
+<blockquote><p>Great minds discuss ideas<br>Average minds discuss events<br>Small minds discuss people</p>
+</blockquote>
+
+<p>这是他对这句话的翻译</p>
+<blockquote><p>卓越之识论道，<br>平常之识论事，<br>狹隘之识论人。</p>
+</blockquote>
+
+<p>我的理解：我们要用卓越和高标准的方式去讨论做事的方式、协议、规范；对于既定发生的事情，用就事论事的方式讨论这件事情，以客观的标准；当我们讨论一个人的时候，我们往往时狭隘的，我们容易把问题上升到个人的品格问题，对问题上纲上线，这是值得反思的。</p>
+<p>写在最后</p>
+<p>祝耗子叔一路走好，感谢您对 IT 行业做的贡献🙏</p>
+]]></content>
   </entry>
 </search>

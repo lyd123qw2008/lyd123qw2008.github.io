@@ -28,7 +28,7 @@
 <meta property="og:description" content="前言之前尝试过自己搭建 virtualbox 虚拟机搭建了 openwrt，想在公司网络也搭建一个 openwrt 给自己用，有需要的同事也可以分享给他们用。但是受限于公司的 windows 虚拟机开启不了虚拟化，安装的 virtualbox 不能安装 openwrt。 所以我另需它路，想在公司的 linux 虚拟机上用 docker 安装 openwrt。几经网上搜索资料和折腾，成功在 linu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-11T02:32:06.000Z">
-<meta property="article:modified_time" content="2023-05-12T12:44:28.046Z">
+<meta property="article:modified_time" content="2023-05-16T09:24:22.027Z">
 <meta property="article:author" content="lyd123qw2008">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="openwrt">
@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -270,7 +270,7 @@
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="打开网卡混杂模式"><a href="#打开网卡混杂模式" class="headerlink" title="打开网卡混杂模式"></a><strong>打开网卡混杂模式</strong></h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 promisc on</code></pre>
 
 <h3 id="创建网络"><a href="#创建网络" class="headerlink" title="创建网络"></a><strong>创建网络</strong></h3><p><code>--subnet</code> 和 <code>--gateway</code> 在一个网段<br><code>--gateway</code> 和宿主机 centos 7 使用同一个网关</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create <span class="token parameter variable">-d</span> macvlan <span class="token parameter variable">--subnet</span><span class="token operator">=</span><span class="token number">192.168</span>.123.0/24 <span class="token parameter variable">--gateway</span><span class="token operator">=</span><span class="token number">192.168</span>.123.1 <span class="token parameter variable">-o</span> <span class="token assign-left variable">parent</span><span class="token operator">=</span>eth0 macnet</code></pre>
+<pre class="language-none"><code class="language-none">docker network create -d macvlan --subnet&#x3D;192.168.123.0&#x2F;24 --gateway&#x3D;192.168.123.1 -o parent&#x3D;eth0 macnet</code></pre>
 
 <p>可以使用 <code>docker network ls</code> 看网络是否成功创建了。</p>
 <h3 id="拉取镜像或自己创建镜像"><a href="#拉取镜像或自己创建镜像" class="headerlink" title="拉取镜像或自己创建镜像"></a>拉取镜像或自己创建镜像</h3><p>有三种方案可选：</p>
@@ -386,6 +386,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/05/16/%E8%AE%B0%E4%BA%94%E6%9C%88%E5%8D%81%E4%BA%94/" rel="next" title="记五月十五">
+                  记五月十五 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
