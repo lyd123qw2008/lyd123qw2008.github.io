@@ -16,6 +16,65 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker 数据管理</title>
+    <url>/2023/05/17/Docker-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>昨天同事问我</p>
+<blockquote><p>有空研究一下 Docker 容器的挂载，目前 volume 的机制是，宿主机的挂载目录下的内容覆盖容器内部的。有没有机制是容器内部的文件夹内容覆盖宿主机的</p>
+</blockquote>
+<span id="more"></span>
+<p>我自己也确实有一些疑惑，但是我之前的操作结果都是宿主机的覆盖容器内部的。<br>然后实践了一下，验证了这个结论。<br>但是我也记得也确定有启动时容器内目录挂载出来的例子。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">--name</span> artalk <span class="token punctuation">\</span>
+    <span class="token parameter variable">-p</span> <span class="token number">8080</span>:23366 <span class="token punctuation">\</span>
+    <span class="token parameter variable">-v</span> <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/data:/data <span class="token punctuation">\</span>
+    <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+    artalk/artalk-go</code></pre>
+<img src="/2023/05/17/Docker-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16842308209820.png" class="" title="把容器里的文件挂出来的例子">
+<p>奇怪，这个怎么就挂出来了？<br>同事给了我他的命令</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--name</span> nginx-01 <span class="token parameter variable">-p</span> <span class="token number">7777</span>:80 <span class="token parameter variable">-v</span> /usr/local/src/config:/etc/nginx/conf.d <span class="token parameter variable">-d</span> nginx</code></pre>
+<p>容器内的 <code>/etc/nginx/conf.d</code> 本来是有东西的<br>经过这么一挂载，宿主机的 <code>/usr/local/src/config</code> 没东西，容器里的 <code>/etc/nginx/conf.d</code> 东西也没了。</p>
+<img src="/2023/05/17/Docker-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16843146184145.png" class="" title="宿主机的">
+<img src="/2023/05/17/Docker-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16843148293239.png" class="" title="容器内的">
+
+<p>也验证了这么一个结论：启动的时候宿主机会覆盖容器里的。</p>
+<p>那么上面“把容器里的文件挂出来的例子”是怎么回事呢？<br>我找到了它的 <code>Dockerfile</code>，顺着代码找到了它的 <code>entrypoint.sh</code></p>
+<img src="/2023/05/17/Docker-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16842330312171.png" class="" title="entrypoint.sh">
+<p>原来它启动的时候创建了这个文件，所以把文件挂出来了。<br>看它的代码，还会打印创建日志。我看看启动日志。</p>
+<img src="/2023/05/17/Docker-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_1684233395330.png" class="" title="启动日志">
+<p>确实打印了创建文件的日志。</p>
+<p>如果真的想把容器内的文件挂出来有什么办法呢？</p>
+<blockquote><p>在容器中管理数据主要有两种方式：</p>
+<ul>
+<li>数据卷（Volumes）</li>
+<li>挂载主机目录 (Bind mounts)</li>
+</ul>
+</blockquote>
+<p>关于数据卷的定义</p>
+<blockquote><p>数据卷 是一个可供一个或多个容器使用的特殊目录，它绕过 UFS，可以提供很多有用的特性：</p>
+<p><code>数据卷</code> 可以在容器之间共享和重用</p>
+<p>对 <code>数据卷</code> 的修改会立马生效</p>
+<p>对 <code>数据卷</code> 的更新，不会影响镜像</p>
+<p><code>数据卷</code> 默认会一直存在，即使容器被删除</p>
+<blockquote>
+<p>注意：数据卷 的使用，类似于 Linux 下对目录或文件进行 mount，镜像中的被指定为挂载点的目录中的文件会复制到数据卷中（仅数据卷为空时会复制）。</p>
+</blockquote>
+</blockquote>
+<p>利用上面的这一点，就可以启动的时候把容器的数据，复制到数据卷。</p>
+<p><code>docker run -v </code> 什么时候用的数据卷，什么时候用的挂载目录呢？简单的来说如果你命令中的宿主机路径没带 <code>/</code>，创建的就是数据卷。</p>
+<p>而前面开头说的就是挂载主机目录。</p>
+<p>讨论下来比较靠谱方案</p>
+<ol>
+<li>用数据卷挂载。</li>
+<li>程序运行时，产生文件把挂载出来。（如果特意是要在启动时把容器的配置文件挂出来的个人想法见下面）</li>
+</ol>
+<p>最后对于 Docker 运行时产生文件，下面是我和同事讨论时，我的想法。</p>
+<blockquote><p>和我们平时挂载的操作一样。需要写点命令。当你把项目提供给别人使用时有些用。直接把模板配置文件给你挂出来了，改改就能用，上手起来快。不然你就得单独给别人提供配置文件。我遇到配置文件很复杂的，那种一般就不挂出模板配置文件，别人一般自己有一份，然后又需要一个容器版的，拿自己配置文件直接就能把程序跑起来。</p>
+</blockquote>
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>通过 hexo 搭建博客</title>
     <url>/2023/05/01/build-a-blog-with-hexo/</url>
     <content><![CDATA[<p>主流的博客有很多，选择 <a href="https://hexo.io/zh-cn/docs/">Hexo</a> 是因为它可以和 Github 搭配使用，用 <a href="https://docs.github.com/zh/pages/getting-started-with-github-pages">Github Pages</a> 可以搭建免费的个人博客。而 hexo 的官网网站有中文翻译，也更受国人青睐。我去翻了一下 hexo 的官方 Github 仓库，一直在持续维护，决定了选用它作为建站的系统。废话不多说开始动手。下面大部分步骤都与 hexo 官网大同小异，有些步骤，则是我在实际操作时发现的问题和结合我自己的理解做的修改。</p>
